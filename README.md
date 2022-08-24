@@ -207,5 +207,5 @@ You wrote your code and executed it with the ancient Python version 3.9. Does it
 
 While it is possible to do everything by hand, managing your development containers manually is a bit tedious. Many IDEs include extensions for remote development, including development with Docker containers.
 
-The [.devcontainer/](.devconainer/) directory contains everything you need to set up this project with VS Code.
+The [.devcontainer/](.devcontainer/) directory contains everything you need to set up this project with VS Code.
 
