@@ -131,10 +131,10 @@ To mount your local app directory, rebuild the image and run the container with
 ```
 docker run --rm -it --name kwt22-container -v "/$(pwd)/app":"/app" -p 8080:5000 kwt22-image
 ```
-*Note that this creates the `app/__pycache__` directory and places the compiled Python byte code for your `app.py` module there.*
+*Note that this creates the `app/__pycache__` directory and places the compiled Python byte code for your `app.py` module there. To this date, the management of file permissions with docker is still a bit tedious. If you are running Linux, the  files in `app/__pycache__` will be owned by `root:root` on the host system, as they are created by root in the container. Although the root user in the docker container is not the root user on the host system, you have to be root on the host to delete the files (or change permissions).*
 
 ### Task
-Your task is to edit `app.py` however you like. First try small modifications like changing the returned string. You will find further inspiration in the [flask documentation](https://flask.palletsprojects.com/en/2.2.x/quickstart/).
+Your task is to edit `app.py` on your host system however you like. First try small modifications like changing the returned string. You will find further inspiration in the [flask documentation](https://flask.palletsprojects.com/en/2.2.x/quickstart/). The flask development server will automatically reload the file when you modify it.
 
 
 ## Step 4: Getting ready for production (10 min)
@@ -196,14 +196,16 @@ Congratulations, you are done! You now know..
 
 Time to transfer this knowledge to your own projects!
 
----
 
-## Bonus Step 1: Version Upgrades
+## Workshop Extensions
+
+### Version Upgrades
 
 You wrote your code and executed it with the ancient Python version 3.9. Does it also work with Python 3.10? Have a look at [https://hub.docker.com/_/python](https://hub.docker.com/_/python) and modify the base image to run your web application with Python 3.10. You can also try a later release candidate if you feel adventurous. All by changing a single line.
 
-## Bonus Step 2: Docker in VS Code
+### Docker in VS Code
 
 While it is possible to do everything by hand, managing your development containers manually is a bit tedious. Many IDEs include extensions for remote development, including development with Docker containers.
 
-The [.devcontainer/](.devconainer/) directory contains a configuration file and a README to set up this project with VS Code.
+The [.devcontainer/](.devconainer/) directory contains everything you need to set up this project with VS Code.
+

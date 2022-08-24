@@ -21,6 +21,7 @@ CMD ["--host", "0.0.0.0", "--port", "5000"]
 # production image
 FROM dev as prod
 
+WORKDIR /app
 RUN pip install --no-cache-dir waitress
 COPY ./app ./
 

@@ -3,16 +3,32 @@
 {
 	"name": "Development",
 	"context": "..",
-	// Development target from the solution
-	"dockerFile": "../solution/step4/Dockerfile",
+
+	// modified Dockerfile with "flask" user
+	"dockerFile": "Dockerfile",
+	"containerUser": "flask",
 	"build": {
 		"target": "dev"
+		// Optional: Change user UID/GID according to your local user
+		// 1000:1000 is the default for the first user on your system
+		// (not necessarily the user that builds this container) 
+		// "args": {
+		//	"USER_UID": "1000",
+		//	"USER_GID": "1000"
+		// }
 	},
+
 	// Expose ports like we did before with -p 8080:5000
 	"appPort": ["8080:5000"],
-	// Select workspace directory (we could instead also open the whole repository)
-	"workspaceMount": "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached",
-	"workspaceFolder": "/app",
+	
+	// Optional: Select workspace directory inside repository (we  instead open the whole repository)
+	// "workspaceMount": "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached",
+	// "workspaceFolder": "/app",
+	// if we open the whole repository, we have to correct the path of the flask app environment variable
+	"containerEnv": {
+		"FLASK_APP": "./app/app.py"
+	},
+
 	// Directly install VS code Python extensions when building the image
 	// Hint: you can list installed extensions via code --list-extensions
 	"customizations": {
