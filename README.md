@@ -3,7 +3,7 @@
 This workshop teaches you the absolute basics of docker within 60 minutes.
 Its main purpose is to motivate you to use docker in your own projects.
 
-This repository complements the slides that are available [here](https://docs.google.com/presentation/d/1V80luhiGTXsOiuFaBR_z_lnkw7oI13ebfGQk9tsHCb4/edit?usp=sharing).
+This readme complements the slides provided in the `slides/` directory ([PDF link](slides/KWT22_Docker_in_60_minutes.pdf)).
 
 We will barely scratch the surface of docker's capabilities and focus on selected parts from the [get started guide](https://docs.docker.com/get-started/) in docker's documentation. 
 More details and information about advanced functionality can be found on the [official docker website](https://docs.docker.com/).
